@@ -31,6 +31,7 @@
 
 <div class="li__center">
 <ul class="ul">
+    <img width="305px" height="305px" src="./icons/vhodnaya_gruppa_jpeg_1_408428fd45.jpg" alt="" id="present__img">
     <li id="li">Экологичные материалы</li>
     <li id="li">Минимализм и эстетика</li>
     <li id="li">Витражное остекление</li>
@@ -42,8 +43,8 @@
 .li__center {
 display: flex;
 justify-content: end;
-padding-right: 200px;
-margin-top: -45px;
+padding-right: 250px;
+margin-top: -672px;
 }
 
 #li {
@@ -124,7 +125,8 @@ margin-top: -600px;
 .technology__wrapper {
     background-color: #282525;
     width: 100%;
-    height: 1767px;
+    height: 1378px;
+    padding: 130px 40px;
 }
 
 .wr__desc {
@@ -191,11 +193,17 @@ margin-top: -600px;
     opacity: 0; /* Курсор исчезает на половину времени */
   }
 }
+
+#present__img {
+margin-bottom: 30px;
+
+}
+
 </style>
 
 <script>
-
-
+import gsap from 'gsap';
+gsap.registerPlugin(ScrollTrigger);
 
 export default {
   data() {
@@ -235,5 +243,55 @@ export default {
 };
 
 
+function animateText() {
+    const textElement = document.querySelector('.wr__desc'); 
+    const imageElement = document.querySelector('.wr__image'); 
+    const listElement = document.querySelector('ul'); 
+
+    
+    gsap.from(textElement, {
+        duration: 2,      
+        y: 50,            
+        opacity: 0,       
+        ease: "power2.out", 
+        scrollTrigger: {
+            trigger: textElement, 
+            start: "top 80%",     
+            toggleActions: "play none none reverse" 
+        }
+    });
+
+   
+    gsap.from(imageElement, {
+        duration: 2,      
+        y: 50,            
+        opacity: 0,       
+        ease: "power2.out", 
+        scrollTrigger: {
+            trigger: imageElement, 
+            start: "top 80%",      
+            toggleActions: "play none none reverse"
+        }
+    });
+
+ 
+    gsap.from(listElement, {
+        duration: 2,      
+        y: 50,            
+        opacity: 0,       
+        ease: "power2.out", 
+        scrollTrigger: {
+            trigger: listElement, 
+            start: "top 80%",      
+            toggleActions: "play none none reverse" 
+        }
+    });
+}
+
+
+
+window.onload = () => {
+    animateText();
+};
 
 </script>

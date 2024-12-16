@@ -4,15 +4,18 @@ import Main from './components/Main.vue'
 import Map from './components/Map.vue'
 import City from './components/City.vue'
 import Technology from './components/Technology.vue'
+import Presentation from './components/Presentation.vue'
 
 </script>
 
 <template>
+
 <Header></Header>
 <Main></Main>
 <Map></Map>
 <City></City>
 <Technology></Technology>
+<Presentation></Presentation>
 
 </template>
 
