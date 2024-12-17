@@ -5,7 +5,7 @@ import Map from './components/Map.vue'
 import City from './components/City.vue'
 import Technology from './components/Technology.vue'
 import Presentation from './components/Presentation.vue'
-
+import Footer from './components/Footer.vue'
 </script>
 
 <template>
@@ -16,6 +16,7 @@ import Presentation from './components/Presentation.vue'
 <City></City>
 <Technology></Technology>
 <Presentation></Presentation>
+<Footer></Footer>
 
 </template>
 
@@ -40,7 +41,7 @@ import Presentation from './components/Presentation.vue'
  
 }
 
-body, button, select, a {
+body, button, select, a, ::placeholder, input {
     font-family: 'MabryPro', sans-serif;
     font-size: 16px;
 }

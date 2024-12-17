@@ -11,7 +11,7 @@
             <div class="desc__big__present fade-in">{{ slides[currentIndex].description }}</div>
           </div>
         </div>
-        <!-- Swiper для большого изображения -->
+        
         <swiper
           ref="mySwiper"
           class="mySwiper"
@@ -27,7 +27,7 @@
           </swiper-slide>
         </swiper>
   
-        <!-- Карусель для маленьких изображений -->
+        
         <div class="small-images">
           <div v-for="(slide, index) in slides" :key="index" @click="changeSlide(index)">
             <img 
@@ -39,10 +39,10 @@
         </div>
   
         <div class="flex__gap">
-          <button class="nav__line" @click="prevSlide" :disabled="currentIndex === 0"><svg width="19" height="19" viewBox="0 0 16 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
+          <button class="nav__line" @click="prevSlide" :disabled="currentIndex === 0"><svg class="ui" width="19" height="19" viewBox="0 0 16 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
   <path fill-rule="evenodd" clip-rule="evenodd" d="M13.7986 4.49963L10.0966 0.851001L10.8088 0.149048L15.7307 5.00002L10.8088 9.851L10.0966 9.14905L13.7994 5.49963L0.895142 5.49964V4.49964L13.7986 4.49963Z" fill="currentColor"></path>
 </svg></button>
-          <button class="nav__line" @click="nextSlide" :disabled="currentIndex === slides.length - 1"><svg width="19" height="19" viewBox="0 0 16 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <button class="nav__line" @click="nextSlide" :disabled="currentIndex === slides.length - 1"><svg class="ui"  width="19" height="19" viewBox="0 0 16 10" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M13.7986 4.49963L10.0966 0.851001L10.8088 0.149048L15.7307 5.00002L10.8088 9.851L10.0966 9.14905L13.7994 5.49963L0.895142 5.49964V4.49964L13.7986 4.49963Z" fill="currentColor"></path>
 </svg></button>
         </div>
@@ -118,17 +118,50 @@ export default {
 cursor: pointer;
 
   }
+
   .nav__line {
-    position: relative; /* Для правильного позиционирования псевдоэлемента */
-    overflow: hidden; /* Скрываем переполнение */
-    border: 1px solid transparent; /* Начальный бордер прозрачный */
-    transition: border-color 0.3s ease; /* Плавная анимация изменения цвета бордера */
-    border-radius: 5px;
+    position: relative; /* For correct positioning of the pseudo-element */
+    overflow: hidden; /* Hide overflow */
+    border: 1px solid #000000; /* Initial border color */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+    padding: 10px; /* Adjust padding as necessary */
+    background-color: transparent; /* Ensure background is transparent */
 }
 
-.nav__line:hover {
-    border-color: black; /* Цвет бордера при наведении */
+.nav__line::after {
+    content: ''; /* Required for pseudo-element */
+    position: absolute; /* Position it absolutely within the button */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width of the button */
+    height: 100%; /* Full height of the button */
+    background-color: rgb(0, 0, 0); /* Color of the filling effect */
+    transform: scaleX(0); /* Start with no scale (hidden) */
+    transform-origin: left; /* Scale from the left side */
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+    z-index: 0; /* Place behind the button content */
 }
+
+.nav__line:hover::after {
+    transform: scaleX(1); /* Scale to full width on hover */
+}
+
+
+.ui {
+    position: relative; 
+    z-index: 1; 
+}
+
+
+.nav__line:hover .ui path {
+    fill: white; 
+}
+
+
+
+
+
+
 
   .container__top {
     position: relative;
