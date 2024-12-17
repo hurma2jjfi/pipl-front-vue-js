@@ -23,13 +23,13 @@ import Footer from './components/Footer.vue'
 <style>
 @font-face {
     font-family: 'MabryPro';
-    src: url('./fonts/MabryPro-Bold.ttf') format('truetype'); 
+    src: url('/fonts/MabryPro-Bold.ttf') format('truetype'); 
     font-style: normal;
 }
 
 @font-face {
     font-family: 'MabryPro';
-    src: url('./fonts/MabryPro-Regular.ttf') format('truetype'); 
+    src: url('/fonts/MabryPro-Regular.ttf') format('truetype'); 
     font-weight: normal; 
     font-style: normal; 
 }
